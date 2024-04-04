@@ -1,0 +1,94 @@
+/* Reset default styles */
+body, h2, table, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Style for the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+ 
+/* Style for table header cells */
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+/* Style for table header row */
+thead tr {
+  background-color: #4CAF50; /* Green background color */
+  color: white; /* White text color */
+}
+
+/* Style for odd rows */
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Style for hover effect on rows */
+tbody tr:hover {
+  background-color: #e6e6e6;
+}
+
+/* Style for the title */
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Style for buttons */
+.button, .button_cancel, .button_save {
+  background-color: #4CAF50; /* Green background color */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.button_cancel {
+  background-color: #ed3114; /* Red background color */
+}
+
+.button_save {
+  background-color: #0e0c62; /* Blue background color */
+}
+
+.button:hover {
+  background-color: #45a049; /* Darker green background color on hover */
+}
+
+.button {
+  margin: 10px; /* Add margin to all buttons */
+  display: inline-block; /* Make buttons display inline */
+  text-align: center; /* Align text in the middle */
+}
+
+.button_cancel {
+  margin-right: 10px; /* Add more margin to the right for spacing */
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+
+/* Style for disabled input fields */
+input[disabled] {
+  background-color: #f0f0f0; /* Light gray background color */
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qualitative Description of Engagement</title>
+<link rel="stylesheet" href="form.css">
+
+</head>
+<body>
+
+<h2>Qualitative Description of Engagement</h2>
+
+<table id="engagementTable" border="1">
+  <thead>
+    <tr>
+      <th rowspan="2">S.No.</th>
+      <th rowspan="2">Level Of Engagement</th>
+      <th rowspan="2">Aspects of Engagement</th>
+      <th colspan="4">Progress This Month</th>
+      <th rowspan="2">Overall Progress</th>
+      <th rowspan="2">Plan of The Quarter</th>
+    </tr>
+    <tr>
+      <th>Select Month</th>
+      <th>Complete Process (Jan) Month </th>
+      <th>Complete Process (Feb) Month </th>
+      <th>Complete Process (Mar) Month </th>
+      <th>Complete Process (Apr) Month </th>
+    </tr>
+  <!-- </thead> -->
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td rowspan="4">SMMU Level Support</td>
+      <td>Governance</td>
+      <td>
+        <select id="progressMonth" name="progress_month" onchange="handleMonthChange()">
+          <option value="">Select Month</option>
+          <option value="Jan">Jan</option>
+          <option value="Feb">Feb</option>
+          <option value="Mar">Mar</option>
+          <option value="Apr">Apr</option>
+        </select>
+      </td>
+      <td><input type="text" id="progress1" name="progress_1" placeholder=""></td>
+      <td><input type="text" id="progress2" name="progress_2" placeholder=""></td>
+      <td><input type="text" id="progress3" name="progress_3" placeholder=""></td>
+      <td><input type="text" id="progress4" name="progress_4" placeholder=""></td>
+      <td><input type="text" id="overallProgress" name="overall_progress" placeholder=""></td>
+      <td><input type="text" id="planQuarter" name="plan_quarter" placeholder=""></td>
+    </tr>
+    <!-- Add more rows for other aspects of SMMU Level Support -->
+  </tbody>
+</table>
+
+<div class="button-container">
+  <button class="button" onclick="saveData()">Save</button>
+  <button class="button_cancel" onclick="cancel()">Cancel</button>
+  <button class="button_save" onclick="showPreviousData()">Show Previous Data</button>
+</div>
+
+<script>
+function saveData() {
+  // Add your code to save the form data here
+  alert('Data saved successfully!');
+}
+
+function cancel() {
+  // Add your code to cancel the form here
+  alert('Form cancelled!');
+}
+
+function showPreviousData() {
+  // Add your code to show previous data here
+  alert('Showing previous data...');
+}
+
+function handleMonthChange() {
+  var selectedMonth = document.getElementById('progressMonth').value;
+  var currentMonth = new Date().getMonth() + 1; // Adding 1 since getMonth() returns zero-based month
+
+  var inputFields = document.querySelectorAll('#engagementTable input[type="text"]');
+  inputFields.forEach(function(input) {
+    var inputNameParts = input.id.split('_');
+    var cellMonth = parseInt(inputNameParts[inputNameParts.length - 1]); // Extract month from input ID
+    if (cellMonth < currentMonth && cellMonth != selectedMonth) {
+      input.disabled = true; // Disable input fields for previous months except the selected month
+      input.style.backgroundColor = '#f0f0f0'; // Change background color to indicate it's disabled
+    } else {
+      input.disabled = false; // Enable input fields for the selected month
+      input.style.backgroundColor = ''; // Remove background color
+    }
+  });
+}
+</script>
+
+</body>
+</html>
